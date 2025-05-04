@@ -1,5 +1,7 @@
-import { useLocation } from "react-router-dom";
+
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -11,14 +13,30 @@ const NotFound = () => {
     );
   }, [location.pathname]);
 
+  // Check if we're trying to access a product page
+  const isProductRoute = location.pathname.includes("/products/");
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
+    <div className="container py-16 px-4">
+      <div className="max-w-md mx-auto text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+        
+        {isProductRoute ? (
+          <>
+            <p className="text-xl text-gray-600 mb-6">Product Not Found</p>
+            <p className="text-gray-500 mb-8">
+              The product you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+            </p>
+          </>
+        ) : (
+          <p className="text-xl text-gray-600 mb-6">Oops! Page not found</p>
+        )}
+        
+        <Link to={isProductRoute ? "/shop" : "/"}>
+          <Button className="px-6">
+            {isProductRoute ? "Continue Shopping" : "Return to Home"}
+          </Button>
+        </Link>
       </div>
     </div>
   );

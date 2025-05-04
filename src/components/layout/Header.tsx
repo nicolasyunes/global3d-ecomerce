@@ -20,7 +20,6 @@ import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
-  NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -52,10 +51,12 @@ const Header = () => {
             <NavigationMenuList>
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.name}>
-                  <Link to={item.link}>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      {item.name}
-                    </NavigationMenuLink>
+                  {/* Fix: removed the nesting of Link inside NavigationMenuLink */}
+                  <Link 
+                    to={item.link}
+                    className={navigationMenuTriggerStyle()}
+                  >
+                    {item.name}
                   </Link>
                 </NavigationMenuItem>
               ))}
@@ -95,7 +96,7 @@ const Header = () => {
             <Search size={20} />
           </Button>
           
-          <Link to="/account">
+          <Link to="/login">
             <Button variant="ghost" size="icon" aria-label="Account">
               <User size={20} />
             </Button>
