@@ -30,7 +30,7 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contacto | Print3D</title>
+        <title>Contacto | Global3D</title>
         <meta
           name="description"
           content="Contactanos para consultas, presupuestos o para conocer más sobre nuestros servicios de impresión 3D"
@@ -108,8 +108,8 @@ const ContactPage = () => {
                   <Mail className="h-5 w-5 mr-3 text-primary" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:contacto@print3d.com.ar" className="text-primary hover:underline">
-                      contacto@print3d.com.ar
+                    <a href="mailto:contacto@global3d.com.ar" className="text-primary hover:underline">
+                      contacto@global3d.com.ar
                     </a>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ const ContactPage = () => {
 
               <div className="flex gap-4">
                 <a
-                  href="https://instagram.com/print3d.ar"
+                  href="https://instagram.com/global3d.ar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-br from-purple-600 to-pink-500 text-white p-3 rounded-full hover:opacity-90 transition-opacity"
@@ -149,7 +149,7 @@ const ContactPage = () => {
                 </a>
 
                 <a
-                  href="https://facebook.com/print3d.ar"
+                  href="https://facebook.com/global3d.ar"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-600 text-white p-3 rounded-full hover:opacity-90 transition-opacity"

@@ -30,11 +30,11 @@ const Header = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   
   const menuItems = [
-    { name: "Home", link: "/" },
-    { name: "Shop", link: "/shop" },
-    { name: "Categories", link: "/categories" },
-    { name: "About", link: "/about" },
-    { name: "Contact", link: "/contact" },
+    { name: "Inicio", link: "/" },
+    { name: "Tienda", link: "/shop" },
+    { name: "Categorías", link: "/categories" },
+    { name: "Nosotros", link: "/about" },
+    { name: "Contacto", link: "/contact" },
   ];
   
   return (
@@ -42,7 +42,7 @@ const Header = () => {
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="font-bold text-xl text-primary">
-          Print3D
+          Global3D
         </Link>
         
         {/* Desktop Navigation */}
@@ -51,7 +51,6 @@ const Header = () => {
             <NavigationMenuList>
               {menuItems.map((item) => (
                 <NavigationMenuItem key={item.name}>
-                  {/* Fix: removed the nesting of Link inside NavigationMenuLink */}
                   <Link 
                     to={item.link}
                     className={navigationMenuTriggerStyle()}
@@ -69,7 +68,7 @@ const Header = () => {
           <div className="absolute left-0 top-0 w-full h-full bg-white flex items-center px-4 animate-fade-in">
             <div className="flex w-full items-center max-w-md mx-auto">
               <Input
-                placeholder="Search products..."
+                placeholder="Buscar productos..."
                 className="flex-1"
                 autoFocus
               />
@@ -91,19 +90,19 @@ const Header = () => {
             variant="ghost"
             size="icon"
             onClick={() => setSearchOpen(!searchOpen)}
-            aria-label="Search"
+            aria-label="Buscar"
           >
             <Search size={20} />
           </Button>
           
           <Link to="/login">
-            <Button variant="ghost" size="icon" aria-label="Account">
+            <Button variant="ghost" size="icon" aria-label="Cuenta">
               <User size={20} />
             </Button>
           </Link>
           
           <Link to="/cart">
-            <Button variant="ghost" size="icon" className="relative" aria-label="Cart">
+            <Button variant="ghost" size="icon" className="relative" aria-label="Carrito">
               <ShoppingCart size={20} />
               <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs">
                 3

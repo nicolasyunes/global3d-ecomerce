@@ -44,7 +44,7 @@ const ProductGrid = ({ products, title }: ProductGridProps) => {
       
       <div className="flex flex-col sm:flex-row gap-4 justify-between">
         <Input
-          placeholder="Search products..."
+          placeholder="Buscar productos..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="max-w-xs"
@@ -55,14 +55,14 @@ const ProductGrid = ({ products, title }: ProductGridProps) => {
           onValueChange={setSortOrder}
         >
           <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Sort by" />
+            <SelectValue placeholder="Ordenar por" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="default">Default</SelectItem>
-            <SelectItem value="price-low">Price: Low to High</SelectItem>
-            <SelectItem value="price-high">Price: High to Low</SelectItem>
-            <SelectItem value="name-asc">Name: A to Z</SelectItem>
-            <SelectItem value="name-desc">Name: Z to A</SelectItem>
+            <SelectItem value="default">Predeterminado</SelectItem>
+            <SelectItem value="price-low">Precio: Menor a Mayor</SelectItem>
+            <SelectItem value="price-high">Precio: Mayor a Menor</SelectItem>
+            <SelectItem value="name-asc">Nombre: A a Z</SelectItem>
+            <SelectItem value="name-desc">Nombre: Z a A</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -74,7 +74,7 @@ const ProductGrid = ({ products, title }: ProductGridProps) => {
           ))
         ) : (
           <div className="col-span-full text-center py-12 text-muted-foreground">
-            No products match your search.
+            No se encontraron productos que coincidan con tu búsqueda.
           </div>
         )}
       </div>

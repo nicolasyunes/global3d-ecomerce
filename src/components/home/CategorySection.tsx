@@ -12,27 +12,27 @@ interface Category {
 const categories: Category[] = [
   {
     id: "figurines",
-    name: "Figurines",
+    name: "Figuras",
     image: "https://images.unsplash.com/photo-1558222218-b7b54eede3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Collectible characters and models"
+    description: "Personajes coleccionables y modelos detallados"
   },
   {
     id: "home-decor",
-    name: "Home Decor",
+    name: "Decoración",
     image: "https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Unique pieces for your home"
+    description: "Piezas únicas para tu hogar"
   },
   {
     id: "gadgets",
-    name: "Gadgets",
+    name: "Accesorios",
     image: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Useful tools and accessories"
+    description: "Herramientas útiles y accesorios"
   },
   {
     id: "custom",
-    name: "Custom Designs",
+    name: "Diseños Personalizados",
     image: "https://images.unsplash.com/photo-1633899306328-c5e70574afd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-    description: "Personalized creations"
+    description: "Creaciones a tu medida"
   }
 ];
 
@@ -40,7 +40,7 @@ const CategorySection = () => {
   return (
     <section className="py-12">
       <div className="container">
-        <h2 className="text-3xl font-bold mb-8 text-center">Shop by Category</h2>
+        <h2 className="text-3xl font-bold mb-8 text-center">Comprar por Categoría</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (

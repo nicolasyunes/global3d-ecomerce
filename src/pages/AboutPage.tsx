@@ -5,15 +5,15 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>Sobre Nosotros | Print3D</title>
-        <meta name="description" content="Conocé nuestra historia, misión y visión en Print3D" />
+        <title>Sobre Nosotros | Global3D</title>
+        <meta name="description" content="Conocé nuestra historia, misión y visión en Global3D" />
       </Helmet>
       <div className="container py-10 px-4 max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold mb-6">Sobre Nosotros</h1>
         
         <div className="prose prose-lg max-w-none">
           <p className="text-lg mb-4">
-            ¡Hola! Somos el equipo de Print3D, tu aliado en la creación de objetos únicos con tecnología 3D. Desde hace más de 3 años, venimos transformando ideas en realidades tangibles para emprendedores, hogares y empresas de toda Argentina.
+            ¡Hola! Somos el equipo de Global3D, tu aliado en la creación de objetos únicos con tecnología 3D. Desde hace más de 3 años, venimos transformando ideas en realidades tangibles para emprendedores, hogares y empresas de toda Argentina.
           </p>
           
           <p className="mb-4">

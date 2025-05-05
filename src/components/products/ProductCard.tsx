@@ -21,7 +21,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    toast.success(`${product.name} added to cart!`);
+    toast.success(`${product.name} añadido al carrito!`);
   };
 
   return (
@@ -45,7 +45,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
               onClick={handleAddToCart}
             >
               <ShoppingCart size={16} />
-              <span className="sr-only">Add to cart</span>
+              <span className="sr-only">Añadir al carrito</span>
             </Button>
           </div>
         </CardContent>

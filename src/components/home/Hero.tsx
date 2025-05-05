@@ -30,7 +30,7 @@ const Hero = () => {
         </div>
         <div className="relative h-64 md:h-auto">
           <img 
-            src="https://images.unsplash.com/photo-1612557066432-65d42da5f5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+            src="https://images.unsplash.com/photo-1635405074683-96d6b5bbd844?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
             alt="Productos Impresos en 3D" 
             className="rounded-lg shadow-lg object-cover w-full h-full"
             loading="eager"

@@ -8,12 +8,12 @@ const NotFound = () => {
 
   useEffect(() => {
     console.error(
-      "404 Error: User attempted to access non-existent route:",
+      "404 Error: Usuario intentó acceder a una ruta inexistente:",
       location.pathname
     );
   }, [location.pathname]);
 
-  // Check if we're trying to access a product page
+  // Comprueba si estamos intentando acceder a una página de producto
   const isProductRoute = location.pathname.includes("/products/");
 
   return (
@@ -23,18 +23,18 @@ const NotFound = () => {
         
         {isProductRoute ? (
           <>
-            <p className="text-xl text-gray-600 mb-6">Product Not Found</p>
+            <p className="text-xl text-gray-600 mb-6">Producto No Encontrado</p>
             <p className="text-gray-500 mb-8">
-              The product you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+              El producto que estás buscando puede haber sido eliminado, haber cambiado de nombre o no estar disponible temporalmente.
             </p>
           </>
         ) : (
-          <p className="text-xl text-gray-600 mb-6">Oops! Page not found</p>
+          <p className="text-xl text-gray-600 mb-6">¡Ups! Página no encontrada</p>
         )}
         
         <Link to={isProductRoute ? "/shop" : "/"}>
           <Button className="px-6">
-            {isProductRoute ? "Continue Shopping" : "Return to Home"}
+            {isProductRoute ? "Continuar Comprando" : "Volver al Inicio"}
           </Button>
         </Link>
       </div>
