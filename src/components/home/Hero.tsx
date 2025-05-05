@@ -34,7 +34,7 @@ const Hero = () => {
             alt="Productos Impresos en 3D" 
             className="rounded-lg shadow-lg object-cover w-full h-full"
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
       </div>
