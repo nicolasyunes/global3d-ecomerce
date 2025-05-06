@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   ShoppingCart,
-  User,
   Search,
   Menu,
   X
@@ -24,10 +23,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Badge } from "@/components/ui/badge";
+import UserMenu from "@/components/auth/UserMenu";
+import { useCart } from "@/components/cart/CartContext";
 
 const Header = () => {
   const isMobile = useIsMobile();
   const [searchOpen, setSearchOpen] = useState(false);
+  const { totalItems } = useCart();
   
   const menuItems = [
     { name: "Inicio", link: "/" },
@@ -95,18 +97,17 @@ const Header = () => {
             <Search size={20} />
           </Button>
           
-          <Link to="/login">
-            <Button variant="ghost" size="icon" aria-label="Cuenta">
-              <User size={20} />
-            </Button>
-          </Link>
+          {/* Usuario (ahora usa el componente UserMenu) */}
+          <UserMenu />
           
           <Link to="/cart">
             <Button variant="ghost" size="icon" className="relative" aria-label="Carrito">
               <ShoppingCart size={20} />
-              <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs">
-                3
-              </Badge>
+              {totalItems > 0 && (
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs">
+                  {totalItems}
+                </Badge>
+              )}
             </Button>
           </Link>
           

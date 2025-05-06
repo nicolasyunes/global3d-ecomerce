@@ -12,9 +12,9 @@ const SignupPage = () => {
     <div className="container py-8">
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem href="/">Inicio</BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbItem active>Create Account</BreadcrumbItem>
+          <BreadcrumbItem active>Crear Cuenta</BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
       

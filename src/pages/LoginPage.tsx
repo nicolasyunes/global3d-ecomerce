@@ -12,9 +12,9 @@ const LoginPage = () => {
     <div className="container py-8">
       <Breadcrumb>
         <BreadcrumbList>
-          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem href="/">Inicio</BreadcrumbItem>
           <BreadcrumbSeparator />
-          <BreadcrumbItem active>Login</BreadcrumbItem>
+          <BreadcrumbItem active>Iniciar Sesión</BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
       
