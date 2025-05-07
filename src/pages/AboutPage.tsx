@@ -16,6 +16,7 @@ const AboutPage = () => {
             ¡Hola! Somos el equipo de Global3D, tu aliado en la creación de objetos únicos con tecnología 3D. Desde hace más de 3 años, venimos transformando ideas en realidades tangibles para emprendedores, hogares y empresas de toda Argentina.
           </p>
           
+          
           <p className="mb-4">
             Con más de 1.500 modelos impresos en nuestro haber, nos especializamos en dar vida a objetos personalizados con la mejor calidad y atención cercana que nos caracteriza. Ya sea que necesites un prototipo para tu emprendimiento, una pieza única decorativa, o un pedido mayorista para tu negocio, estamos para acompañarte en cada paso.
           </p>
