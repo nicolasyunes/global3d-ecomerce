@@ -51,14 +51,14 @@ const categories: Category[] = [
     name: "Joyería",
     image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Diseños únicos para usar como accesorios.",
-    productCount: 12
+    productCount: 1222
   },
   {
     id: "toys",
     name: "Juguetes",
     image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
     description: "Artículos divertidos y educativos para niños de todas las edades.",
-    productCount: 20
+    productCount: 201
   }
 ];
 

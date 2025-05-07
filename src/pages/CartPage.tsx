@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -11,39 +10,19 @@ import { Button } from "@/components/ui/button";
 import CartItem from "@/components/cart/CartItem";
 import { ArrowRight, LogIn } from "lucide-react";
 import { useCart } from "@/components/cart/CartContext";
-
-interface UserData {
-  id: string;
-  name: string;
-  email: string;
-  isAuthenticated: boolean;
-}
+import { useAuth } from "@/lib/AuthContext";
 
 const CartPage = () => {
-  const { cartItems, updateQuantity, removeItem, subtotal, total } = useCart();
-  const [user, setUser] = useState<UserData | null>(null);
-  const shipping = subtotal > 50 ? 0 : 5.99;
+  const { items, updateQuantity, removeFromCart, total } = useCart();
+  const { user } = useAuth();
+  const shipping = total > 50 ? 0 : 5.99;
 
-  useEffect(() => {
-    const userData = localStorage.getItem("user");
-    if (userData) {
-      try {
-        const parsedUser = JSON.parse(userData);
-        if (parsedUser.isAuthenticated) {
-          setUser(parsedUser);
-        }
-      } catch (e) {
-        console.error("Error parsing user data", e);
-      }
-    }
-  }, []);
-  
   const handleQuantityChange = (id: string, quantity: number) => {
     updateQuantity(id, quantity);
   };
   
   const handleRemoveItem = (id: string) => {
-    removeItem(id);
+    removeFromCart(id);
   };
 
   return (
@@ -58,11 +37,11 @@ const CartPage = () => {
       
       <h1 className="text-3xl font-bold mt-6 mb-8">Tu Carrito</h1>
       
-      {cartItems.length > 0 ? (
+      {items.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2">
             <div className="space-y-1">
-              {cartItems.map((item) => (
+              {items.map((item) => (
                 <CartItem
                   key={item.id}
                   id={item.id}
@@ -84,7 +63,7 @@ const CartPage = () => {
               <div className="space-y-2 pt-4">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Envío</span>
@@ -93,36 +72,27 @@ const CartPage = () => {
                 <div className="border-t my-4 pt-4">
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>${(total + shipping).toFixed(2)}</span>
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">Impuestos incluidos</p>
                 </div>
               </div>
-              
+
               {user ? (
                 <Button className="w-full" asChild>
                   <Link to="/checkout">
-                    Finalizar Compra <ArrowRight size={16} className="ml-2" />
+                    Proceder al Pago
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               ) : (
-                <>
-                  <Button className="w-full" asChild>
-                    <Link to="/login">
-                      Iniciar Sesión <LogIn size={16} className="ml-2" />
-                    </Link>
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center mt-2">
-                    Inicia sesión o crea una cuenta para continuar con tu compra
-                  </p>
-                </>
+                <Button className="w-full" asChild>
+                  <Link to="/login">
+                    Iniciar Sesión para Comprar
+                    <LogIn className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               )}
-              
-              <Button variant="outline" className="w-full" asChild>
-                <Link to="/shop">
-                  Seguir Comprando
-                </Link>
-              </Button>
             </div>
           </div>
         </div>
@@ -130,10 +100,10 @@ const CartPage = () => {
         <div className="text-center py-12">
           <h2 className="text-2xl font-bold mb-4">Tu carrito está vacío</h2>
           <p className="text-muted-foreground mb-8">
-            Parece que aún no has agregado productos a tu carrito.
+            Agrega algunos productos a tu carrito para comenzar a comprar.
           </p>
           <Button asChild>
-            <Link to="/shop">Ir a Comprar</Link>
+            <Link to="/shop">Ver Productos</Link>
           </Button>
         </div>
       )}

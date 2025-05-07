@@ -1,8 +1,6 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/components/cart/CartContext";
 import { toast } from "sonner";
 
 export interface ProductProps {
@@ -10,48 +8,41 @@ export interface ProductProps {
   name: string;
   price: number;
   image: string;
-  category?: string;
+  category: string;
 }
 
-interface ProductCardProps {
-  product: ProductProps;
-}
+export default function ProductCard({ id, name, price, image, category }: ProductProps) {
+  const { addToCart } = useCart();
 
-const ProductCard = ({ product }: ProductCardProps) => {
-  const handleAddToCart = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toast.success(`${product.name} añadido al carrito!`);
+  const handleAddToCart = () => {
+    addToCart({ id, name, price, image, category });
+    toast.success("Producto agregado al carrito");
   };
 
   return (
-    <Link to={`/products/${product.id}`}>
-      <Card className="product-card h-full border overflow-hidden">
+    <div className="group relative bg-white rounded-lg shadow-md overflow-hidden">
+      <Link to={`/products/${id}`} className="block">
         <div className="aspect-square overflow-hidden">
-          <img 
-            src={product.image} 
-            alt={product.name} 
-            className="w-full h-full object-cover"
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
-        <CardContent className="p-4">
-          <h3 className="font-medium line-clamp-2">{product.name}</h3>
-          <div className="flex justify-between items-center mt-2">
-            <p className="font-bold text-primary">${product.price.toFixed(2)}</p>
-            <Button 
-              size="sm" 
-              variant="outline" 
-              className="rounded-full w-8 h-8 p-0"
-              onClick={handleAddToCart}
-            >
-              <ShoppingCart size={16} />
-              <span className="sr-only">Añadir al carrito</span>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </Link>
+        <div className="p-4">
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">{name}</h3>
+          <p className="text-sm text-gray-500 mb-2">{category}</p>
+          <p className="text-xl font-bold text-gray-900">${price.toFixed(2)}</p>
+        </div>
+      </Link>
+      <div className="p-4 pt-0">
+        <Button
+          onClick={handleAddToCart}
+          className="w-full bg-primary hover:bg-primary/90"
+        >
+          Agregar al carrito
+        </Button>
+      </div>
+    </div>
   );
-};
-
-export default ProductCard;
+}
